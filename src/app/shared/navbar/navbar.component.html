@@ -1,0 +1,13 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+  <div class="options name" (click)="goToHome()">VEDICA</div>
+  <div class="options" (click)="goToRecruiter()"
+       [class.active]="activeRoute === '/recuriter'">Home</div>
+  <div class="options" (click)="goToExperience()"
+       [class.active]="activeRoute === '/experience'">Experience</div>
+  <div class="options" (click)="goToSkills()"
+       [class.active]="activeRoute === '/skills'">Skills</div>
+  <div class="options" (click)="goToProjects()"
+       [class.active]="activeRoute === '/projects'">Projects</div>
+  <div class="options" (click)="goToContact()"
+       [class.active]="activeRoute === '/contact'">Contact</div>
+</nav>

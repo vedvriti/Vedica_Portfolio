@@ -1,68 +1,66 @@
 <div class="recruiter-container">
-  <div class="recruiter-hero">
-    <video autoplay muted loop class="background-video">
+ <div class="recruiter-container">
+
+  <section class="recruiter-hero">
+
+    <video autoplay muted loop playsinline class="background-video">
       <source src="assets/videos/interview.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
     </video>
-    <div class="navbar" [class.scrolled]="isScrolled">
-      <div class="options name">VEDICA</div>
-      <div class="options">Home</div>
-      <div class="options">Professional</div>
-      <div class="options" (click)="goToSkills()">Skills</div>
-      <div class="options">Projects</div>
-      <div class="options">Hire ME</div>
-    </div>
+
+  <app-navbar></app-navbar>
+
     <div class="hero-content">
+
+      <div class="hero-role">
+        <span class="role-primary">Frontend Engineer</span>
+        <span class="role-divider">·</span>
+        <span class="role-stack">Angular · React · .NET</span>
+      </div>
+
+      <div class="hero-badge">
+        ● Available for Frontend & Full Stack Opportunities
+      </div>
+
       <div class="hero-content-heading">
-        <h1>Vedica - .NET Full Stack Developer</h1>
+
+        <h1>
+          Building Scalable Web Experiences with
+          <span>Angular, React & .NET</span>
+        </h1>
+
         <p>
-          Dynamic and results-driven full-stack developer with 2 years of
-          hands-on experience, I thrive at the intersection of creativity and
-          technology. I specialize in building scalable, responsive, and
-          user-centric web applications that not only meet business goals but
-          also deliver an intuitive experience. Beyond writing clean code, I
-          focus on understanding the end-user, optimizing performance, and
-          continuously exploring new technologies to craft solutions that are
-          both innovative and efficient. My mission is not just to develop
-          applications, but to create digital experiences that leave a lasting
-          impact.
+          2+ years building enterprise-grade UIs and full-stack solutions.
+          Specialized in Angular & React frontends with ASP.NET Core backends.
         </p>
-        <!-- <p>
-          I have successfully worked on projects that span from dynamic web
-          applications to complex enterprise solutions, mastering both frontend
-          and backend technologies. My expertise includes Angular, Node.js,
-          TypeScript, and database management, allowing me to architect
-          solutions that are robust, maintainable, and scalable. I thrive in
-          collaborative environments, actively contributing to team discussions,
-          mentoring peers, and delivering projects on time without compromising
-          quality. I am passionate about continuous learning, keeping up with
-          industry trends, and implementing best practices to ensure every
-          project exceeds expectations.
-        </p> -->
-        <!-- <p>
-          I take pride in turning challenges into opportunities, whether it’s
-          optimizing application performance, integrating APIs, or enhancing
-          user experience. By combining analytical thinking, creativity, and
-          technical expertise, I aim to develop applications that are not only
-          functional but also visually appealing and engaging. My goal is to
-          leverage my skills to create impactful digital products that solve
-          real-world problems and provide measurable value to users and
-          businesses alike.
-        </p> -->
+
       </div>
 
       <div class="hero-content-footer">
-        <div class="btn-resume">
-          <img src="assets/videos/play.svg" />
-          <h3>Resume</h3>
-        </div>
-        <div class="btn-linkedin">
-          <img src="assets/videos/exclamation.svg" />
-          <h3>Linkedin</h3>
-        </div>
+
+        <a
+          class="btn-resume"
+          href="assets/videos/resume/Vedica_Resume.pdf"
+          download="Vedica_Resume.pdf"
+        >
+          <img src="assets/videos/play.svg" alt="Resume" />
+          <span>Download Resume</span>
+        </a>
+
+        <a
+          class="btn-linkedin"
+          href="https://www.linkedin.com/in/vedica-882518191/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="assets/videos/exclamation.svg" alt="LinkedIn" />
+          <span>LinkedIn ↗</span>
+        </a>
+
       </div>
+
     </div>
-  </div>
+
+  </section>
   <div class="second-row">
     <div class="header">
       <h2>Today's Top Picks For Recruiters</h2>
@@ -70,23 +68,18 @@
 
     <div class="second-row-wrapper">
       <div class="second-row-track">
-        <div class="content one">
-          <h3>EXPERIENCE</h3>
+        <div class="content one" (click)="goToExperience()">
+          <h3 >EXPERIENCE</h3>
         </div>
         <div class="content two" (click)="goToSkills()">
           <h3>SKILLS</h3>
         </div>
-        <div class="content three">
-          <h3>PROJECTS</h3>
+        <div class="content three" (click)="goToProjects()">
+          <h3>PROJECTS</h3> 
         </div>
         <div class="content four">
-          <h3>CERTIFICATIONS</h3>
+          <h3>CERTIFICATIONS</h3> 
         </div>
-        <div class="content five">
-          <h3>SKILLS</h3>
-        </div>
-        <div class="content six">
-          <h3>SKILLS</h3>
         </div>
       </div>
     </div>
@@ -98,25 +91,20 @@
 
     <div class="second-row-wrapper">
       <div class="second-row-track">
-        <div class="content one">
-          <h3>EXPERIENCE</h3>
+        <div class="content one" (click)="goToExperience()">
+          <h3 >EXPERIENCE</h3>
         </div>
-        <div class="content two">
+        <div class="content two" (click)="goToSkills()">
           <h3>SKILLS</h3>
         </div>
-        <div class="content three">
+        <div class="content three" (click)="goToProjects()">
           <h3>PROJECTS</h3>
         </div>
-        <div class="content four">
+         <div class="content four" >
           <h3>CERTIFICATIONS</h3>
-        </div>
-        <div class="content five">
-          <h3>SKILLS</h3>
-        </div>
-        <div class="content six">
-          <h3>SKILLS</h3>
         </div>
       </div>
     </div>
   </div>
 </div>
+  <app-footer></app-footer>

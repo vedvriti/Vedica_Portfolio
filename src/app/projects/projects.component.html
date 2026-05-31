@@ -1,0 +1,66 @@
+ <app-navbar></app-navbar>
+ <div class="page-wrapper">
+<section id="projects" class="projects-section" #sectionRef [class.visible]="visible">
+        <div class="content">
+
+            <div class="section-header">
+                <h2 class="section-title">FEATURED RELEASES</h2>
+            </div>
+
+            <!-- Featured Card -->
+            <div class="featured-card" [style.--i]="0">
+                <div class="featured-glow"></div>
+                <span class="featured-badge">FEATURED</span>
+                <span class="featured-release-badge">FULL STACK · TOP RELEASE</span>
+
+                <div class="featured-body">
+                    <div class="featured-text">
+                        <h3 class="featured-title">E-Commerce Platform</h3>
+                        <p class="featured-tagline">End-to-end commerce — Angular + ASP.NET Core + MSSQL</p>
+                        <p class="featured-desc">
+                            Full-stack e-commerce platform with product inventory, cart management,
+                            CRUD REST APIs, LINQ-optimised SQL queries, and Angular HTTP Interceptors
+                            for secure seamless data flow.
+                        </p>
+                        <div class="featured-tags">
+                            <span class="ep-tag"
+                                *ngFor="let t of ['C#','ASP.NET Web API','Entity Framework Core','Angular','MSSQL','LINQ']">{{
+                                t }}</span>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+
+            <!-- Small Cards Grid -->
+            <div class="small-cards-grid">
+                <div class="small-card" *ngFor="let card of smallCards; let i = index" [style.--i]="i + 1">
+                    <div class="small-card-cover" [style.background]="card.coverStyle">
+                        <span class="small-card-icon">{{ card.icon }}</span>
+                        <span class="small-card-badge" *ngIf="card.badge">{{ card.badge }}</span>
+                    </div>
+
+                    <div class="small-card-body">
+                        <h4 class="small-card-title">{{ card.title }}</h4>
+                        <p class="small-card-client" *ngIf="card.client">{{ card.client }}</p>
+                        <div class="small-card-tags">
+                            <span class="ep-tag" *ngFor="let tag of card.tags">{{ tag }}</span>
+                        </div>
+                    </div>
+
+                    <!-- Hover Overlay -->
+                    <div class="small-card-overlay">
+                        <p class="overlay-desc">{{ card.description }}</p>
+                        <div class="overlay-tags">
+                            <span class="ep-tag" *ngFor="let tag of card.tags">{{ tag }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+    </div>
+</section>
+</div>
+  <app-footer></app-footer>
+

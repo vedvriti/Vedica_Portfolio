@@ -1,116 +1,219 @@
 .recruiter-container {
   width: 100%;
-  height: auto;
-  background: black;
-
-  .second-row {
-    h2 {
-      color: white;
-    }
-  }
+  min-height: 100vh;
+  background: #0b0b0b;
+  color: #fff;
 }
+
+/* HERO SECTION */
 
 .recruiter-hero {
   position: relative;
-  width: 100%;
-  height: 500px;
+  height: 100vh;
+  min-height: 750px;
   overflow: hidden;
+}
 
-  .hero-content {
-    width: 100%;
-    .hero-content-heading {
-      position: absolute;
-      margin: 262px 20px 0px;
-
-      h1,
-      p {
-        color: ghostwhite;
-      }
-    }
-
-    .hero-content-footer {
-      display: flex;
-      width: 96%;
-      gap: 15px;
-      position: absolute;
-      margin: 428px 21px;
-
-      .btn-resume,
-      .btn-linkedin {
-        height: 60px;
-        width: 15%;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-
-        img {
-          height: 42px;
-        }
-        h3 {
-          padding: 0px 10px;
-        }
-      }
-      .btn-resume {
-        background: white;
-      }
-
-      .btn-linkedin {
-        background: grey;
-      }
-    }
-  }
+.recruiter-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.92),
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.45)
+  );
+  z-index: 1;
 }
 
 .background-video {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
-.navbar {
-  height: 52px;
-  position: fixed;
-  top: 0;
-  z-index: 100;
-  display: flex;
-  gap: 60px;
-  padding: 15px 10px;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+/* HERO CONTENT */
 
-  .options {
-    font-size: 1.2em;
-    cursor: pointer;
-    &.name {
-      color: crimson;
-      font-size: 3em;
-      cursor: default;
-    }
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 0 80px;
+}
+
+.hero-role {
+  display: flex;
+  align-items: center;
+  padding-top: 7%;
+  gap: 12px;
+  margin-bottom: 16px;
+  animation: fadeInUp 0.8s ease 0.2s both;
+
+  .role-primary {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.5px;
   }
-  .options:hover {
-    color: crimson;
-    transform: scale(1.2);
+
+  .role-divider {
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 300;
+  }
+
+  .role-stack {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #e74c3c;
+    letter-spacing: 0.5px;
   }
 }
 
+.hero-badge {
+  display: inline-block;
+  padding: 10px 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(231, 76, 60, 0.2);
+  border-radius: 28px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #e74c3c;
+  margin-bottom: 32px;
+  backdrop-filter: blur(10px);
+  animation: fadeInUp 0.8s ease 0.3s both;
+}
+
+.hero-content-heading {
+  max-width: 800px;
+  animation: fadeInUp 0.8s ease 0.4s both;
+
+  h1 {
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 28px;
+    color: white;
+    letter-spacing: -0.02em;
+
+    span {
+      background: linear-gradient(135deg, #e74c3c 0%, #f5a623 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 680px;
+    font-weight: 400;
+  }
+}
+
+/* CTA BUTTONS */
+
+.hero-content-footer {
+  display: flex;
+  gap: 16px;
+  margin-top: 48px;
+  animation: fadeInUp 0.8s ease 0.5s both;
+}
+
+.btn-resume,
+.btn-linkedin {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px 26px;
+  border-radius: 12px;
+
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  border: none;
+  cursor: pointer;
+}
+
+.btn-resume {
+  background: white;
+  color: black;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+}
+
+.btn-linkedin {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-resume img,
+.btn-linkedin img {
+  height: 20px;
+  width: 20px;
+}
+
+.btn-resume:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(255, 255, 255, 0.15);
+}
+
+.btn-linkedin:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 32px rgba(231, 76, 60, 0.2);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CONTENT SECTIONS */
+
 .second-row {
-  padding: 20px;
+  padding: 60px;
+  background: #0b0b0b;
+
+  .header {
+    margin-bottom: 32px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
 }
 
 .second-row-wrapper {
-  width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  white-space: nowrap;
   scrollbar-width: none;
+  scroll-behavior: smooth;
 }
 
 .second-row-wrapper::-webkit-scrollbar {
@@ -119,94 +222,278 @@
 
 .second-row-track {
   display: inline-flex;
-  gap: 16px;
-  cursor: pointer;
+  gap: 24px;
+  padding-bottom: 8px;
 }
+
+/* CARDS */
 
 .content {
-  min-width: 330px;
-  height: 335px;
-  background-image: url("/assets/videos/experience.jpg");
+  position: relative;
+
+  min-width: 320px;
+  height: 380px;
+
+  border-radius: 16px;
+  overflow: hidden;
+
   background-size: cover;
-  border-radius: 6px;
-  flex-shrink: 0;
+  background-position: center;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
   cursor: pointer;
-  //   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.95)
+    );
+  }
 
   h3 {
-    background: crimson;
-    padding: 5px;
-  }
-  &.one {
-    background-image: url("/assets/videos/experience.jpg");
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    color: antiquewhite;
-    font-size: 20px;
-  }
-  &.two {
-    background-image: url("/assets/videos/projects.jpg");
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    color: antiquewhite;
-    font-size: 20px;
-  }
-  &.three {
-    background-image: url("/assets/videos/plan.jpeg");
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    color: antiquewhite;
-    font-size: 20px;
-  }
-  &.four {
-    background-image: url("/assets/videos/skills.jpg");
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    color: antiquewhite;
-    font-size: 20px;
-  }
-  &.five {
-    background-image: url("/assets/videos/skills.jpg");
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    color: antiquewhite;
-    font-size: 20px;
-  }
-  &.six {
-    background-image: url("/assets/videos/skills.jpg");
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    color: antiquewhite;
-    font-size: 20px;
-  }
-}
-.content:hover {
-  transform: translateY(10px);
-  box-shadow: 0 12px 30px rgba(220, 20, 60, 0.7);
-}
-.navbar:hover {
-  box-shadow: 0 12px 30px rgba(220, 20, 60, 0.7);
-}
-.navbar.scrolled {
-  background: rgba(0, 0, 0, 0.95);
-  .options {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+
+    padding: 28px;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+
     color: white;
+
+    background: transparent;
   }
-  .options:hover {
-    color: crimson;
-    transform: scale(1.2);
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 24px 48px rgba(231, 76, 60, 0.2);
   }
-  .name {
-    color: crimson;
+}
+
+/* CARD IMAGES */
+
+.content.one {
+  background-image: url("/assets/videos/experience.jpg");
+}
+
+.content.two {
+  background-image: url("/assets/videos/projects.jpg");
+}
+
+.content.three {
+  background-image: url("/assets/videos/plan.jpeg");
+}
+
+.content.four {
+  background-image: url("/assets/videos/microsoft.png");
+}
+
+.content.five {
+  background-image: url("/assets/videos/skills.jpg");
+}
+
+.content.six {
+  background-image: url("/assets/videos/skills.jpg");
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1024px) {
+  .recruiter-hero {
+    min-height: 600px;
+  }
+
+  .hero-content {
+    padding: 25px 60px;
+  }
+
+  .hero-content-heading h1 {
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+  }
+
+  .second-row {
+    padding: 48px 40px;
+  }
+
+  .second-row h2 {
+    font-size: 1.8rem;
+  }
+
+  .content {
+    min-width: 280px;
+    height: 340px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 24px;
+    gap: 24px;
+    height: 70px;
+
+    .name {
+      font-size: 1.4rem;
+      margin-right: 24px;
+    }
+
+    .options {
+      font-size: 0.9rem;
+    }
+  }
+
+  .hero-content {
+    padding: 0 28px;
+  }
+
+  .hero-content-heading {
+    max-width: 100%;
+  }
+
+  .hero-content-heading h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-content-heading p {
+    font-size: 1rem;
+  }
+
+  .hero-content-footer {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .btn-resume,
+  .btn-linkedin {
+    padding: 12px 22px;
+    font-size: 0.9rem;
+  }
+
+  .btn-resume img,
+  .btn-linkedin img {
+    height: 18px;
+    width: 18px;
+  }
+
+  .second-row {
+    padding: 40px 24px;
+  }
+
+  .second-row h2 {
+    font-size: 1.5rem;
+  }
+
+  .second-row .header {
+    margin-bottom: 24px;
+  }
+
+  .content {
+    min-width: 240px;
+    height: 300px;
+  }
+
+  .content h3 {
+    padding: 20px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .recruiter-hero {
+    min-height: 100vh;
+  }
+
+  .navbar {
+    padding: 0 16px;
+    gap: 12px;
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 70px;
+
+    .name {
+      font-size: 1.2rem;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+
+    .options {
+      font-size: 0.85rem;
+      padding: 4px 8px;
+    }
+  }
+
+  .hero-content {
+    padding: 0 20px;
+    padding-top: 70px;
+  }
+
+  .hero-role {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+
+    .role-primary,
+    .role-stack {
+      font-size: 0.9rem;
+    }
+  }
+
+  .hero-badge {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+
+  .hero-content-heading h1 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+
+  .hero-content-heading p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .hero-content-footer {
+    margin-top: 32px;
+    gap: 10px;
+  }
+
+  .btn-resume,
+  .btn-linkedin {
+    padding: 10px 18px;
+    font-size: 0.85rem;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .second-row {
+    padding: 32px 16px;
+  }
+
+  .second-row h2 {
+    font-size: 1.3rem;
+  }
+
+  .content {
+    min-width: 200px;
+    height: 280px;
+  }
+
+  .content h3 {
+    padding: 16px;
+    font-size: 1rem;
   }
 }

@@ -1,0 +1,474 @@
+/* Projects Section */
+.projects-section {
+  padding: 60px;
+  background: #0b0b0b;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.projects-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section Header */
+.section-header {
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.02em;
+  border-left: 4px solid #e74c3c;
+  padding-left: 20px;
+  margin: 0;
+}
+
+/* Stagger base */
+.featured-card,
+.small-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out calc(var(--i, 0) * 120ms),
+              transform 0.6s ease-out calc(var(--i, 0) * 120ms);
+}
+
+.projects-section.visible .featured-card,
+.projects-section.visible .small-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Featured Card */
+.featured-card {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+  border: 1px solid #282828;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 36px;
+  cursor: default;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, scale 0.35s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.featured-card:hover {
+  border-color: #e74c3c;
+  box-shadow: 0 12px 40px rgba(231, 76, 60, 0.15);
+  scale: 1.01;
+}
+
+/* Radial glow top-right */
+.featured-glow {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(231, 76, 60, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* FEATURED corner badge */
+.featured-badge {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  background: linear-gradient(135deg, #e74c3c, #f5a623);
+  color: #fff;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 4px 12px;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+/* TOP RELEASE pill top-right */
+.featured-release-badge {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.25);
+  color: #e74c3c;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 5px 14px;
+  border-radius: 24px;
+  z-index: 2;
+}
+
+.featured-body {
+  height: 85%;
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+}
+
+.featured-text {
+  max-width: 680px;
+}
+
+.featured-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+
+.featured-tagline {
+  color: #888;
+  font-size: 0.9rem;
+  margin: 0 0 12px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.featured-desc {
+  color: #bbb;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 0 0 18px;
+  font-weight: 400;
+}
+
+.featured-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.featured-btns {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-live {
+  background: #fff;
+  color: #0b0b0b;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 24px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-live:hover {
+  background: #e74c3c;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.btn-github {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #404040;
+  border-radius: 10px;
+  padding: 10px 24px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-github:hover {
+  border-color: #e74c3c;
+  color: #e74c3c;
+  background: rgba(231, 76, 60, 0.05);
+}
+
+/* Small Cards Grid */
+.small-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Small Card */
+.small-card {
+  position: relative;
+  background: #1a1a1a;
+  border: 1px solid #282828;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: default;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.projects-section.visible .small-card {
+  transition: opacity 0.6s ease-out calc(var(--i, 0) * 120ms),
+              transform 0.6s ease-out calc(var(--i, 0) * 120ms),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease,
+              scale 0.35s ease;
+}
+
+.small-card:hover {
+  border-color: #e74c3c;
+  box-shadow: 0 12px 32px rgba(231, 76, 60, 0.15);
+  scale: 1.04;
+}
+
+/* Cover */
+.small-card-cover {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-bottom: 1px solid #282828;
+}
+
+.small-card-icon {
+  font-size: 2.4rem;
+}
+
+.small-card-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #e74c3c, #f5a623);
+  color: #fff;
+  font-size: 8px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* Body */
+.small-card-body {
+  padding: 18px 20px 20px;
+}
+
+.small-card-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 4px;
+}
+
+.small-card-client {
+  color: #888;
+  font-size: 0.8rem;
+  margin: 0 0 14px;
+  font-weight: 500;
+}
+
+.small-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Hover Overlay */
+.small-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  border-radius: 0 0 14px 14px;
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.small-card:hover .small-card-overlay {
+  transform: translateY(0);
+}
+
+.overlay-desc {
+  color: #bbb;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  margin: 0 0 14px;
+}
+
+.overlay-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Shared Tag */
+.ep-tag {
+  background: #242424;
+  border: 1px solid #303030;
+  color: #888;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.ep-tag:hover {
+  border-color: #e74c3c;
+  color: #e74c3c;
+  background: rgba(231, 76, 60, 0.05);
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .projects-section {
+    padding: 50px 40px;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .featured-card {
+    height: 280px;
+  }
+
+  .small-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 40px 24px;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .featured-card {
+    height: auto;
+    min-height: 240px;
+    margin-bottom: 28px;
+  }
+
+  .featured-body {
+    align-items: flex-start;
+    padding-top: 80px;
+  }
+
+  .featured-title {
+    font-size: 1.4rem;
+  }
+
+  .featured-tagline {
+    font-size: 0.85rem;
+  }
+
+  .featured-desc {
+    font-size: 0.8rem;
+  }
+
+  .featured-release-badge {
+    font-size: 9px;
+    padding: 4px 10px;
+  }
+
+  .btn-live,
+  .btn-github {
+    padding: 8px 18px;
+    font-size: 0.8rem;
+  }
+
+  .small-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .small-card-cover {
+    height: 100px;
+  }
+
+  .small-card-title {
+    font-size: 1rem;
+  }
+
+  .small-card-client {
+    font-size: 0.75rem;
+  }
+
+  .ep-tag {
+    padding: 3px 10px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-section {
+    padding: 32px 16px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    letter-spacing: 0;
+  }
+
+  .featured-card {
+    min-height: 220px;
+    margin-bottom: 24px;
+  }
+
+  .featured-badge {
+    font-size: 7px;
+    padding: 3px 8px;
+  }
+
+  .featured-title {
+    font-size: 1.2rem;
+  }
+
+  .featured-desc {
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .btn-live,
+  .btn-github {
+    padding: 8px 16px;
+    font-size: 0.75rem;
+    flex: 1;
+  }
+
+  .small-card-cover {
+    height: 90px;
+  }
+
+  .small-card-icon {
+    font-size: 2rem;
+  }
+
+  .small-card-body {
+    padding: 14px 16px;
+  }
+
+  .small-card-title {
+    font-size: 0.95rem;
+  }
+
+  .overlay-desc {
+    font-size: 0.8rem;
+  }
+}
+
+.page-wrapper {
+  padding-top: 70px;
+  background: #0b0b0b;
+  min-height: 100vh;
+}

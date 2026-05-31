@@ -1,103 +1,34 @@
-<div class="skills-container">
-  <div class="navbar">
-    <div class="options name">VEDICA</div>
-    <div class="options" (click)="goToHome()">Home</div>
-    <div class="options">Professional</div>
-    <div class="options">Skills</div>
-    <div class="options">Projects</div>
-    <div class="options">Hire ME</div>
-  </div>
-  <div class="hero-content-skill">
-    <div class="backend-content">
-      <div class="backend-heading">
-        <h2>Backend</h2>
+<app-navbar></app-navbar>
+<div class="page-wrapper">
+  <section id="skills" class="skills-section" #sectionRef [class.visible]="visible">
+    <div class="content">
+
+      <div class="section-header">
+        <h2 class="section-title">MY STACK</h2>
+        <p class="section-subtitle">What I ship with</p>
       </div>
-      <div class="backend-cards">
-        <div class="card">
-          <div class="image">
-            <img src="/assets/videos/java (1).png" />
+
+      <div class="second-row">
+        <div class="second-row-wrapper" *ngFor="let row of skillRows; let ri = index" [style.--i]="ri">
+          <h3 class="shelf-label">{{ row.label }}</h3>
+          <div class="second-row-track">
+            <div class="skill-card" *ngFor="let skill of row.skills; let i = index" [style.--i]="i">
+              <span *ngIf="skill.topPick" class="top-pick-badge">TOP PICK</span>
+              <div class="skill-icon">
+                <!-- <span class="skill-initials">{{ getInitials(skill.name) }}</span> -->
+                <img [src]="skill.icon" [alt]="skill.name" class="skill-logo" />
+              </div>
+              <span class="skill-name">{{ skill.name }}</span>
+              <div class="skill-bar-track">
+                <div class="skill-bar-fill" [style.--proficiency]="skill.proficiency + '%'"></div>
+              </div>
+              <span class="skill-pct">{{ skill.proficiency }}%</span>
+            </div>
           </div>
-          <div class="language">Java</div>
-          <div class="backend-lang">Object Oriented Programming Language</div>
-        </div>
-        <div class="card">
-          <div class="image">
-            <img src="/assets/videos/c-sharp.png" />
-          </div>
-          <div class="language">C#</div>
-          <div class="backend-lang">Object Oriented Programming Language</div>
-        </div>
-        <div class="card">
-          <div class="image">
-            <img src="/assets/videos/web.png" />
-          </div>
-          <div class="language">ASP .NET CORE</div>
-          <div class="backend-lang">Web Framework</div>
-        </div>
-        <div class="card">
-          <div class="image">
-            <img src="/assets/videos/api.png" />
-          </div>
-          <div class="language">ASP .NET WEB API</div>
-          <div class="backend-lang">Web API</div>
         </div>
       </div>
+
     </div>
-    <div class="backend-content">
-      <div class="backend-heading">
-        <h2>Frontend</h2>
-      </div>
-      <div class="backend-cards">
-        <div class="card">
-          <div class="image">
-            <img src="/assets/videos/html.png" />
-          </div>
-          <div class="language">HTML&CSS</div>
-          <div class="backend-lang">Web Markup and Styling</div>
-        </div>
-        <div class="card">
-          <div class="image">
-            <img src="/assets/videos/js.png" />
-          </div>
-          <div class="language">JavaScript</div>
-          <div class="backend-lang">Scripting language</div>
-        </div>
-        <div class="card">
-          <div class="image">
-            <img src="/assets/videos/typescript.png" />
-          </div>
-          <div class="language">TypeScript</div>
-          <div class="backend-lang">Type-safe JavaScript</div>
-        </div>
-        <div class="card">
-          <div class="image">
-            <img src="/assets/videos/programing.png" />
-          </div>
-          <div class="language">Angular</div>
-          <div class="backend-lang">Frontend Framework</div>
-        </div>
-      </div>
-    </div>
-    <div class="backend-content">
-      <div class="backend-heading">
-        <h2>Other Tools & Practices</h2>
-      </div>
-      <div class="backend-cards">
-        <div class="card">
-          <div class="image">
-            <img src="/assets/videos/social.png" />
-          </div>
-          <div class="language">Dockerization</div>
-          <div class="backend-lang">Container Management</div>
-        </div>
-        <div class="card">
-          <div class="image">
-            <img src="/assets/videos/programing.png" />
-          </div>
-          <div class="language">Agile</div>
-          <div class="backend-lang">Developement Methodology</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  </section>
 </div>
+<app-footer></app-footer>

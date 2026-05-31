@@ -1,0 +1,111 @@
+<app-navbar></app-navbar>
+<div class="page-wrapper">
+  <section
+    id="experience"
+    class="experience-section"
+    #sectionRef
+    [class.visible]="visible"
+  >
+    <div class="content">
+
+      <!-- Header -->
+      <div class="section-header">
+        <div class="section-eyebrow">
+          <span class="section-eyebrow-text">Experience</span>
+          <div class="section-eyebrow-line"></div>
+        </div>
+        <h2 class="section-title">
+          Frontend-focused.<br>
+          <span class="accent">Full-stack sharp.</span>
+        </h2>
+        <p class="section-stack">Angular · React · <span>.NET</span> · TypeScript</p>
+      </div>
+
+      <!-- Cards -->
+      <div class="timeline">
+        <div
+          class="timeline-episode"
+          *ngFor="let ep of episodes; let i = index"
+          [style.--i]="i"
+        >
+          <div class="ep-card">
+
+            <!-- Banner -->
+            <div class="ep-top">
+              <div class="ep-banner">
+                <span class="ep-label">{{ ep.epLabel }}</span>
+                <div class="ep-status-dot" [class.live]="ep.isLive"></div>
+                <span class="ep-status-text">{{ ep.epStatus }}</span>
+                <span class="ep-pill">{{ ep.duration }}</span>
+              </div>
+
+              <h3 class="ep-company">{{ ep.company }}</h3>
+              <p class="ep-role">{{ ep.role }}</p>
+
+              <!-- Clients -->
+              <div class="ep-clients" *ngIf="ep.clients?.length">
+                <span class="client-badge" *ngFor="let c of ep.clients">{{ c }}</span>
+              </div>
+
+              <!-- Metrics -->
+              <div class="ep-metrics">
+                <div class="metric" *ngFor="let m of ep.metrics">
+                  <span class="metric-val">{{ m.val }}</span>
+                  <span class="metric-label">{{ m.label }}</span>
+                </div>
+              </div>
+
+              <!-- Progress bar -->
+              <div class="ep-progress-wrap">
+                <div class="ep-progress-track">
+                  <div
+                    class="ep-progress-fill"
+                    [style.width.%]="visible ? getTenurePct(ep) : 0"
+                  ></div>
+                </div>
+                <div class="ep-progress-meta">
+                  <span class="ep-progress-label">
+                    {{ ep.isLive ? 'Currently here' : 'Completed' }}
+                  </span>
+                  <span class="ep-progress-months">
+                    {{ getTenureMonths(ep) }} mo · {{ getTenurePct(ep) }}% of career
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="ep-divider"></div>
+
+            <!-- Toggle -->
+            <div class="ep-toggle" (click)="ep.open = !ep.open">
+              <div class="ep-toggle-left">
+                <div class="ep-toggle-line"></div>
+                <span class="ep-toggle-label">Breakdown</span>
+              </div>
+              <div class="ep-chevron" [class.open]="ep.open"></div>
+            </div>
+
+            <!-- Collapsible body -->
+            <div class="ep-body" [class.open]="ep.open">
+              <div class="ep-body-inner">
+                <ul class="ep-bullets">
+                  <li class="ep-bullet" *ngFor="let b of ep.bullets">
+                    <span class="bullet-dot"></span>
+                    <span>{{ b }}</span>
+                  </li>
+                </ul>
+                <div class="ep-tags">
+                  <span class="ep-tag" *ngFor="let tag of ep.tags">{{ tag }}</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+<app-footer></app-footer>
